@@ -54,6 +54,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
+    console.log(process.env.JWT_SECRET);
     try {
         let user = await User.findOne({ username });
         if (!user) {
@@ -61,7 +62,7 @@ router.post('/login', async (req, res) => {
         }
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ msg: 'Invalid credentials' });
+            return res.status(400).json({ msg: 'Invalid credentials 2' });
         }
         // const payload = { user: { id: user.id } };
         // console.error(payload);
