@@ -154,7 +154,7 @@ export default function PersistentDrawerLeft() {
         </List>
       </Drawer>
       <Main open={open}>
-        <DrawerHeader />
+        {/* <DrawerHeader /> */}
         
                 <Button color="inherit" component={Link} to='/add-blog'>
                     Add Blog

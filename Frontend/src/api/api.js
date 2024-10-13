@@ -20,3 +20,5 @@ export const fetchBlog = () => api.get('/blogs');
 export const createBlog = (blog) => api.post('/blogs', blog);
 export const updateBlog = (id, blog) => api.put(`/blogs/${id}`, blog);
 export const deleteBlog = (id) => api.delete(`/blogs/${id}`);
+
+export const createUser = (user) => api.post('/auth/register',user)

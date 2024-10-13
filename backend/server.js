@@ -7,7 +7,6 @@ const authRoutes = require('./routes/auth');
 const questionRoutes = require('./routes/question');
 
 
-
 const cors = require('cors'); // Import the cors package
 
 const app = express();
@@ -18,7 +17,7 @@ app.use(bodyParser.json());
 app.use(cors()); // Enable CORS
 
 // MongoDB connection
-mongoose.connect('mongodb://127.0.0.1:27017/mcq-bank', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://127.0.0.1:27017/school', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 

@@ -20,6 +20,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 const drawerWidth = 240;
 
@@ -65,6 +68,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
+const pages = ['Products', 'Pricing', 'Blog'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 export default function SideDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -77,11 +83,13 @@ export default function SideDrawer() {
     setOpen(false);
   };
 
+
   return (
     <div>
     <Box sx={{ display: 'flex' }}>
       <AppBarStyled position="fixed" open={open}>
         <Toolbar>
+
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -91,9 +99,19 @@ export default function SideDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component={Link} to="/">
+
             Admin Dashboard
           </Typography>
+
+          <Box sx={{flexGrow:0}}>
+            <Tooltip title="open settings">
+              <IconButton sx={{ p: 0 }}>
+                <AccountCircle />
+              </IconButton>
+            </Tooltip>
+          </Box>
+
         </Toolbar>
       </AppBarStyled>
       <Drawer

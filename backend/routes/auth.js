@@ -1,18 +1,3 @@
-// const express = require('express');
-// const { register, login } = require('../controllers/authController');
-// const router = express.Router();
-
-// // @route   POST /api/auth/register
-// // @desc    Register user
-// // @access  Public
-// router.post('/register', register);
-
-// // @route   POST /api/auth/login
-// // @desc    Authenticate user & get token
-// // @access  Public
-// router.post('/login', login);
-
-// module.exports = router;
 require('dotenv').config();
 
 const express = require('express');
@@ -31,6 +16,7 @@ const generateToken = (user) => {
 
 router.post('/register', async (req, res) => {
     const { username, password, role } = req.body;
+    console.log( username, password, role);
     try {
         let user = await User.findOne({ username });
         if (user) {
@@ -54,15 +40,15 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    console.log(process.env.JWT_SECRET);
     try {
+
         let user = await User.findOne({ username });
         if (!user) {
             return res.status(400).json({ msg: 'Invalid credentials' });
         }
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ msg: 'Invalid credentials 2' });
+            return res.status(400).json({ msg: 'Invalid credentials' });
         }
         // const payload = { user: { id: user.id } };
         // console.error(payload);

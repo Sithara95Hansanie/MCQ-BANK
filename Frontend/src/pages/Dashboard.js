@@ -31,8 +31,17 @@ const Dashboard = () => {
                 <Grid xs={6} md={4}>
                     <Item>xs=6 md=4</Item>
                 </Grid>
-                <Grid xs={6} md={4}>
-                    <Item>xs=6 md=4</Item>
+                <Grid xs={3}>
+                    <Item>Create Quiz</Item>
+                </Grid>
+                <Grid xs={3}>
+                    <Item>Check Result</Item>
+                </Grid>
+                <Grid xs={3}>
+                    <Item>User Profile</Item>
+                </Grid>
+                <Grid xs={3}>
+                    <Item>Add Users</Item>
                 </Grid>
                 <Grid xs={6} md={8}>
                     <Item>xs=6 md=8</Item>
